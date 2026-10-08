@@ -11,21 +11,18 @@ int main(void)
   HAL_Init();
   SystemClock_Config();
   MX_GPIO_Init();
-xTaskCreate(LED1_Task, "LED1", 128, NULL, 1, NULL);
-xTaskCreate(LED2_Task, "LED2", 128, NULL, 1, NULL);
-xTaskCreate(LED3_Task, "LED3", 128, NULL, 1, NULL);
+	xTaskCreate(LED1_Task, "LED1", 128, NULL, 1, NULL);
+	xTaskCreate(LED2_Task, "LED2", 128, NULL, 1, NULL);
+	xTaskCreate(LED3_Task, "LED3", 128, NULL, 1, NULL);
 vTaskStartScheduler();
   while (1)
   {
   }
-
 }
 void SystemClock_Config(void)
 {
   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
-
- 
   RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI;
   RCC_OscInitStruct.HSIState = RCC_HSI_ON;
   RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
