@@ -14,7 +14,7 @@ int main(void)
 	xTaskCreate(LED1_Task, "LED1", 128, NULL, 1, NULL);
 	xTaskCreate(LED2_Task, "LED2", 128, NULL, 1, NULL);
 	xTaskCreate(LED3_Task, "LED3", 128, NULL, 1, NULL);
-vTaskStartScheduler();
+	vTaskStartScheduler();
   while (1)
   {
   }
