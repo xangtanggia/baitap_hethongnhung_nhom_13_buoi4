@@ -1,17 +1,11 @@
-
 #include "FreeRTOS.h"
 #include "task.h"
 #include "main.h"
-
-
 void LED_Blink(GPIO_TypeDef *GPIOx, uint16_t GPIO_Pin, float frequency)
 {
     uint32_t delay_ms;
-
     delay_ms = (uint32_t)(1000.0f / (2.0f * frequency));
-
     HAL_GPIO_TogglePin(GPIOx, GPIO_Pin);
-
     vTaskDelay(pdMS_TO_TICKS(delay_ms));
 }
 

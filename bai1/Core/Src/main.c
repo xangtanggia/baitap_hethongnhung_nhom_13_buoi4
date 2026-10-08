@@ -1,45 +1,25 @@
-
 #include "main.h"
 #include "FreeRTOS.h"
 #include "task.h"
-
-
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
-
-
-
 void LED1_Task(void *argument);
 void LED2_Task(void *argument);
 void LED3_Task(void *argument);
-
 int main(void)
 {
-
- 
   HAL_Init();
-
-
   SystemClock_Config();
-
-
-
   MX_GPIO_Init();
-
 xTaskCreate(LED1_Task, "LED1", 128, NULL, 1, NULL);
 xTaskCreate(LED2_Task, "LED2", 128, NULL, 1, NULL);
 xTaskCreate(LED3_Task, "LED3", 128, NULL, 1, NULL);
-
 vTaskStartScheduler();
- 
   while (1)
   {
-   
   }
 
 }
-
-
 void SystemClock_Config(void)
 {
   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
@@ -54,8 +34,6 @@ void SystemClock_Config(void)
   {
     Error_Handler();
   }
-
- 
   RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
                               |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
   RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_HSI;
@@ -68,8 +46,6 @@ void SystemClock_Config(void)
     Error_Handler();
   }
 }
-
-
 static void MX_GPIO_Init(void)
 {
   GPIO_InitTypeDef GPIO_InitStruct = {0};
@@ -85,10 +61,7 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
-
-
 }
-
 
 void Error_Handler(void)
 {
