@@ -1,7 +1,6 @@
 --cpu Cortex-M3
 "bai4\startup_stm32f103xb.o"
 "bai4\main.o"
-"bai4\freertos.o"
 "bai4\stm32f1xx_it.o"
 "bai4\stm32f1xx_hal_msp.o"
 "bai4\stm32f1xx_hal_gpio_ex.o"
